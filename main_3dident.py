@@ -14,6 +14,7 @@ from infinite_iterator import InfiniteIterator
 import faiss
 from torchvision import transforms
 from PIL import Image
+import time
 
 use_cuda = torch.cuda.is_available()
 if use_cuda:
@@ -21,7 +22,7 @@ if use_cuda:
 else:
     device = "cpu"
 
-print("device:", device)
+print("device:", device, flush=True)
 
 def valid_str(v):
     if hasattr(v, '__name__'):
@@ -82,9 +83,9 @@ def parse_args():
     parser.add_argument("--resume-training", action="store_true")
     args = parser.parse_args()
 
-    print("Arguments:")
+    print("Arguments:", flush=True)
     for k, v in vars(args).items():
-        print(f"\t{k}: {v}")
+        print(f"\t{k}: {v}", flush=True)
 
     return args, parser
 
@@ -97,13 +98,13 @@ def main():
         args.load_f = os.path.join(args.model_dir, '{}.iteration_{}'.format(get_exp_name(args, parser), 
                                                                                 args.evaluate_iter))
         args.n_steps = 1
-    print("Arguments:")
+    print("Arguments:", flush=True)
     for k, v in vars(args).items():
-        print(f"\t{k}: {v}")
+        print(f"\t{k}: {v}", flush=True)
     global device
     if args.no_cuda:
         device = "cpu"
-        print("Using cpu")
+        print("Using cpu", flush=True)
 
     if args.seed is not None:
         np.random.seed(args.seed)
@@ -213,7 +214,7 @@ def main():
     if args.load_f is not None:
         f.load_state_dict(torch.load(args.load_f, map_location=device))
 
-    print("f: ", f)
+    print("f: ", f, flush=True)
     optimizer = torch.optim.Adam(f.parameters(), lr=args.lr)
     if not args.evaluate:
         train_iterator = InfiniteIterator(train_loader)
@@ -429,42 +430,47 @@ def main():
                     interior_scores.append(int_scores)
                     linear_scores.append(lin_scores)
             if args.evaluate:
-                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(linear_scores)[:,i]) for i in range(11)]))
-                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(nonlinear_scores)[:,i]) for i in range(11)]))
-                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(interior_scores)[:,i]) for i in range(11)]))
-                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(noninterior_scores)[:,i]) for i in range(11)]))
+                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(linear_scores)[:,i]) for i in range(11)]), flush=True)
+                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(nonlinear_scores)[:,i]) for i in range(11)]), flush=True)
+                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(interior_scores)[:,i]) for i in range(11)]), flush=True)
+                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(noninterior_scores)[:,i]) for i in range(11)]), flush=True)
             else:
                 for i in range(z_disentanglement.size(-1)):
                     print(
                         "linear mean: {} std: {}".format(
                             np.mean(np.array(linear_scores)[:,i]), 
                             np.std(np.array(linear_scores)[:,i])
-                        )
+                        ),
+                        flush=True
                     )
                 print(
                     "logistic mean: {} std: {}".format(
                         np.mean(np.array(linear_scores)[:,-1]), 
                         np.std(np.array(linear_scores)[:,-1])
-                    )
+                    ),
+                    flush=True
                 )
                 for i in range(z_disentanglement.size(-1)):
                     print(
                         "int linear mean: {} std: {}".format(
                             np.mean(np.array(interior_scores)[:,i]), 
                             np.std(np.array(interior_scores)[:,i])
-                        )
+                        ),
+                        flush=True
                     )
                 print(
                     "int logistic mean: {} std: {}".format(
                         np.mean(np.array(interior_scores)[:,-1]), 
                         np.std(np.array(interior_scores)[:,-1])
-                    )
+                    ),
+                    flush=True
                 )
             if not args.evaluate and (global_step % args.n_log_steps == 1 or global_step == args.n_steps):
                 print(
                     f"Step: {global_step} \t",
                     f"Loss: {total_loss_value:.4f} \t",
                     f"<Loss>: {np.mean(np.array(total_loss_values[-args.n_log_steps:])):.4f} \t",
+                    flush=True
                 )
             if args.save_every is not None:
                 if global_step // args.save_every != last_save_at_step // args.save_every:
@@ -477,4 +483,6 @@ def main():
 
 
 if __name__ == "__main__":
+    start_time = time.time()
     main()
+    print(f'It took {round(time.time() - start_time, 2)} seconds to run.', flush=True)

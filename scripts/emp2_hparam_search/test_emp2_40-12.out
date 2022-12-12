@@ -1,0 +1,3153 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) gcc/7.4.0   2) Mila
+[=== Module cudatoolkit/11.2 loaded ===]
+[=== Module cuda/11.2/cudnn/8.1 loaded ===]
+[=== Module anaconda/3 loaded ===]
+device: cuda
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 4
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: 
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 128
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 4
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: models/workers4_apply_random_crop_apply_color_distortion_seed0_batch_size128_n_steps501
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 128
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+/home/mila/h/horoiste/ssl_identifiability/main_3dident.py:123: DeprecationWarning: BICUBIC is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.BICUBIC instead.
+  interpolation=Image.BICUBIC),
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/transforms/transforms.py:899: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:135: UserWarning: Using 'weights' as positional parameter(s) is deprecated since 0.13 and may be removed in the future. Please use keyword parameter(s) instead.
+  warnings.warn(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+f:  DataParallel(
+  (module): Sequential(
+    (0): ResNet(
+      (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      (layer1): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer2): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer3): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer4): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+      (fc): Linear(in_features=512, out_features=100, bias=True)
+    )
+    (1): Sequential(
+      (0): LeakyReLU(negative_slope=0.01)
+      (1): Linear(in_features=100, out_features=9, bias=True)
+    )
+  )
+)
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+linear mean: 0.08119943709537156 std: 0.024571751709896842
+linear mean: 0.1640456184449231 std: 0.019960085691193875
+linear mean: 0.06903640413952009 std: 0.017054024491451162
+linear mean: -0.0031921204947058302 std: 0.007549696589502539
+linear mean: -0.005181655299534782 std: 0.006988243119426009
+linear mean: 0.0278374884066663 std: 0.012824521672166411
+linear mean: 0.018260981522914464 std: 0.01622132308927997
+linear mean: 0.13172816168632356 std: 0.019321277536559576
+linear mean: 0.009939663059215665 std: 0.012484101910460677
+linear mean: 0.7120693484822345 std: 0.012265634641823115
+logistic mean: 0.28642578125 std: 0.012008542517049647
+int linear mean: 0.27282653147452857 std: 0.014632279686873764
+int linear mean: 0.46209156340299307 std: 0.022921800080851106
+int linear mean: 0.24323661603435048 std: 0.02961638792678788
+int linear mean: -0.052763821917209894 std: 0.028571481845089182
+int linear mean: -0.03218518809897639 std: 0.021438295893717322
+int linear mean: 0.022623911501727524 std: 0.034246977060212784
+int linear mean: 0.12742085937411501 std: 0.028591161047291664
+int linear mean: 0.4418297597522095 std: 0.017631389016372727
+int linear mean: 0.03237069955625349 std: 0.020587191491467125
+int linear mean: 0.9025834040916756 std: 0.011377794860219509
+int logistic mean: 0.50546875 std: 0.015318029534133748
+Step: 1 	 Loss: 5.5360 	 <Loss>: 5.5360 	
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+linear mean: 0.1457282762941562 std: 0.01899216068457447
+linear mean: 0.0582428929798786 std: 0.021977707344656035
+linear mean: 0.05105905266675335 std: 0.014350633216026403
+linear mean: -0.00022798906058023593 std: 0.01107227435771085
+linear mean: 0.056681104059304 std: 0.016823729385347687
+linear mean: 0.08241764649434763 std: 0.021759603391798468
+linear mean: 0.013608985463968104 std: 0.007899311181072462
+linear mean: 0.5816147024894431 std: 0.014343255023823777
+linear mean: 0.01274134722111354 std: 0.016340364035274602
+linear mean: 0.9111117592090707 std: 0.007645332617161947
+logistic mean: 0.4584522637795276 std: 0.01578801995308136
+int linear mean: 0.31937253178575964 std: 0.03479734795409346
+int linear mean: 0.40857724984144284 std: 0.026168116325822367
+int linear mean: 0.2513400499834244 std: 0.02677380901264408
+int linear mean: 0.04100698004259973 std: 0.025079983396674693
+int linear mean: 0.055128037419349164 std: 0.02231809431110054
+int linear mean: 0.0854934712838784 std: 0.029757277955617542
+int linear mean: 0.1926815270150939 std: 0.025458938146714752
+int linear mean: 0.7933755178928276 std: 0.011858113445836089
+int linear mean: 0.1520327474902599 std: 0.0391538167061073
+int linear mean: 0.9798069014179086 std: 0.0030473038583725062
+int logistic mean: 0.6444420521653543 std: 0.01163448307717732
+Step: 501 	 Loss: 5.2129 	 <Loss>: 5.2910 	
+It took 502.86 seconds to run.
+device: cuda
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 4
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: 
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 256
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 4
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: models/workers4_apply_random_crop_apply_color_distortion_seed0_batch_size256_n_steps501
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 256
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+/home/mila/h/horoiste/ssl_identifiability/main_3dident.py:123: DeprecationWarning: BICUBIC is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.BICUBIC instead.
+  interpolation=Image.BICUBIC),
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/transforms/transforms.py:899: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:135: UserWarning: Using 'weights' as positional parameter(s) is deprecated since 0.13 and may be removed in the future. Please use keyword parameter(s) instead.
+  warnings.warn(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+f:  DataParallel(
+  (module): Sequential(
+    (0): ResNet(
+      (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      (layer1): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer2): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer3): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer4): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+      (fc): Linear(in_features=512, out_features=100, bias=True)
+    )
+    (1): Sequential(
+      (0): LeakyReLU(negative_slope=0.01)
+      (1): Linear(in_features=100, out_features=9, bias=True)
+    )
+  )
+)
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+linear mean: 0.0897045409696599 std: 0.020359944857315133
+linear mean: 0.1747428571963733 std: 0.019289010341199075
+linear mean: 0.06560421344377561 std: 0.016556507989979586
+linear mean: 0.00044483135734801893 std: 0.00781104425465407
+linear mean: -0.002998183841536173 std: 0.00510605277719599
+linear mean: 0.03487146346001772 std: 0.01361669970074823
+linear mean: 0.0598812245338015 std: 0.02384426641211931
+linear mean: 0.12606374755818933 std: 0.01662808310280827
+linear mean: 0.004404574575544495 std: 0.012413716423927058
+linear mean: 0.7149344729838553 std: 0.012171547802069194
+logistic mean: 0.27841796875 std: 0.014696860070193617
+int linear mean: 0.2674432718811774 std: 0.02160045449495984
+int linear mean: 0.47091953100721684 std: 0.02455237577536117
+int linear mean: 0.2516005164461695 std: 0.02868768739799508
+int linear mean: -0.046242422101571104 std: 0.032961924308656444
+int linear mean: -0.03406871793867265 std: 0.01566740074361799
+int linear mean: 0.030972754034862604 std: 0.022933429382910597
+int linear mean: 0.13430700004333684 std: 0.02604695570541269
+int linear mean: 0.4489887234962341 std: 0.017040967816881403
+int linear mean: 0.03000904878040762 std: 0.017310618932830344
+int linear mean: 0.9063344205904841 std: 0.009885935421089872
+int logistic mean: 0.51181640625 std: 0.015257206949228998
+Step: 1 	 Loss: 6.2365 	 <Loss>: 6.2365 	
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+linear mean: 0.2109472331816932 std: 0.03168850427678442
+linear mean: 0.06304536081649878 std: 0.021577524608043467
+linear mean: 0.149569868489129 std: 0.01749637285467354
+linear mean: 0.05329555200949711 std: 0.010273797606625112
+linear mean: 0.07102211795904435 std: 0.022614904673439913
+linear mean: 0.06967858754501881 std: 0.012052618174401408
+linear mean: 0.08381084903415628 std: 0.024806556314031333
+linear mean: 0.44879882885683375 std: 0.018169862514443243
+linear mean: 0.006298234107686973 std: 0.006156191762916011
+linear mean: 0.8291972677720036 std: 0.010147580859530268
+logistic mean: 0.4349158022584033 std: 0.021852458832703862
+int linear mean: 0.36651160709239555 std: 0.019026212633748617
+int linear mean: 0.4597802956254882 std: 0.02135284332033836
+int linear mean: 0.3244748557959998 std: 0.02299835053779503
+int linear mean: 0.08824424854389215 std: 0.03291345092745755
+int linear mean: 0.08094329430652822 std: 0.03051950861113381
+int linear mean: 0.09180294762236808 std: 0.024209097076500638
+int linear mean: 0.27993159543862045 std: 0.026767606459303997
+int linear mean: 0.8060821198975161 std: 0.009221350575447186
+int linear mean: 0.1388905478480711 std: 0.029595452498979855
+int linear mean: 0.9848041455641571 std: 0.004045369051116762
+int logistic mean: 0.6759937959558824 std: 0.01817321376500093
+Step: 501 	 Loss: 5.7838 	 <Loss>: 5.9044 	
+It took 816.01 seconds to run.
+device: cuda
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 4
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: 
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 512
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 4
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: models/workers4_apply_random_crop_apply_color_distortion_seed0_n_steps501
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 512
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+/home/mila/h/horoiste/ssl_identifiability/main_3dident.py:123: DeprecationWarning: BICUBIC is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.BICUBIC instead.
+  interpolation=Image.BICUBIC),
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/transforms/transforms.py:899: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:135: UserWarning: Using 'weights' as positional parameter(s) is deprecated since 0.13 and may be removed in the future. Please use keyword parameter(s) instead.
+  warnings.warn(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+f:  DataParallel(
+  (module): Sequential(
+    (0): ResNet(
+      (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      (layer1): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer2): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer3): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer4): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+      (fc): Linear(in_features=512, out_features=100, bias=True)
+    )
+    (1): Sequential(
+      (0): LeakyReLU(negative_slope=0.01)
+      (1): Linear(in_features=100, out_features=9, bias=True)
+    )
+  )
+)
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+linear mean: 0.09230838499330164 std: 0.023427397837342396
+linear mean: 0.11537929005337022 std: 0.015425851334109363
+linear mean: 0.059816071716612115 std: 0.017288131105282024
+linear mean: -0.006461860700966604 std: 0.008756215041102612
+linear mean: -0.0027099872782995415 std: 0.006973641481364114
+linear mean: 0.03301411478643275 std: 0.016599584254466265
+linear mean: 0.0361739997861113 std: 0.01619460276092309
+linear mean: 0.11122573359912691 std: 0.01813766291542709
+linear mean: 0.006053831498945705 std: 0.011582386240813593
+linear mean: 0.7320099689288113 std: 0.013800267951600104
+logistic mean: 0.2626953125 std: 0.011596037194372966
+int linear mean: 0.27404905074791847 std: 0.02098140675793639
+int linear mean: 0.4697128557419753 std: 0.026293192083640882
+int linear mean: 0.2523728641455169 std: 0.023304992616046044
+int linear mean: -0.045371751512192846 std: 0.0370740065823374
+int linear mean: -0.033396958024778226 std: 0.01801668080175199
+int linear mean: 0.029361268448170063 std: 0.017011803489172417
+int linear mean: 0.13124754011060763 std: 0.030693685341009216
+int linear mean: 0.4600759095615192 std: 0.01709207526288465
+int linear mean: 0.032914153603446974 std: 0.017257251953100065
+int linear mean: 0.9106241526538383 std: 0.012545123640226252
+int logistic mean: 0.51103515625 std: 0.01135545262511755
+Step: 1 	 Loss: 6.9310 	 <Loss>: 6.9310 	
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+linear mean: 0.09935706870234502 std: 0.019484703707658476
+linear mean: 0.142922262582523 std: 0.021577506179895976
+linear mean: 0.1481401871783336 std: 0.021914489247929752
+linear mean: 0.05708998390214143 std: 0.020014901306441738
+linear mean: 0.08729544511918504 std: 0.016794094482270462
+linear mean: 0.04123956452705111 std: 0.01595239282250159
+linear mean: 0.03657543463921194 std: 0.015552810037091011
+linear mean: 0.2529651692179037 std: 0.016675135693736267
+linear mean: 0.00046768491840954997 std: 0.009346174480261236
+linear mean: 0.862105183925212 std: 0.012447545259702944
+logistic mean: 0.6689377275485437 std: 0.013326757010618834
+int linear mean: 0.4264874525180355 std: 0.02948442856916891
+int linear mean: 0.5028327208143242 std: 0.02189918403208437
+int linear mean: 0.362388172829835 std: 0.018436859689434912
+int linear mean: 0.1170500962878914 std: 0.02122670411730181
+int linear mean: 0.1174003737020036 std: 0.03168510278435813
+int linear mean: 0.12380885684088024 std: 0.02820897021676007
+int linear mean: 0.28268535935678807 std: 0.027544705549099924
+int linear mean: 0.7931897687104636 std: 0.008922001699047673
+int linear mean: 0.09012317615702195 std: 0.02802143010665428
+int linear mean: 0.9826974877314472 std: 0.008382091312658702
+int logistic mean: 0.820776130157767 std: 0.011701410567010653
+Step: 501 	 Loss: 6.3658 	 <Loss>: 6.5220 	
+It took 1322.49 seconds to run.
+device: cuda
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 8
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: 
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 128
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 8
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: models/workers8_apply_random_crop_apply_color_distortion_seed0_batch_size128_n_steps501
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 128
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+/home/mila/h/horoiste/ssl_identifiability/main_3dident.py:123: DeprecationWarning: BICUBIC is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.BICUBIC instead.
+  interpolation=Image.BICUBIC),
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/transforms/transforms.py:899: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:135: UserWarning: Using 'weights' as positional parameter(s) is deprecated since 0.13 and may be removed in the future. Please use keyword parameter(s) instead.
+  warnings.warn(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+f:  DataParallel(
+  (module): Sequential(
+    (0): ResNet(
+      (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      (layer1): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer2): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer3): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer4): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+      (fc): Linear(in_features=512, out_features=100, bias=True)
+    )
+    (1): Sequential(
+      (0): LeakyReLU(negative_slope=0.01)
+      (1): Linear(in_features=100, out_features=9, bias=True)
+    )
+  )
+)
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+linear mean: 0.08119996701666135 std: 0.0245718272606584
+linear mean: 0.16404560489896008 std: 0.019960166998940754
+linear mean: 0.06903637697574487 std: 0.017054079428816007
+linear mean: -0.003191990318709259 std: 0.0075497966998152085
+linear mean: -0.005181761514112193 std: 0.006988175524805088
+linear mean: 0.027837405181136376 std: 0.012824609852610485
+linear mean: 0.018260742862488764 std: 0.01622128884619192
+linear mean: 0.1317283208475757 std: 0.019321507777560903
+linear mean: 0.009939463397124992 std: 0.012484066910192746
+linear mean: 0.7120696228403928 std: 0.012265680116106202
+logistic mean: 0.2865234375 std: 0.0120017902310447
+int linear mean: 0.27282713277559056 std: 0.014633037076480605
+int linear mean: 0.46209173662121367 std: 0.02292200287566798
+int linear mean: 0.24323658879802776 std: 0.02961675941286595
+int linear mean: -0.052763733751319285 std: 0.02857189069804949
+int linear mean: -0.03218567834359733 std: 0.02143841056526352
+int linear mean: 0.022623887728616142 std: 0.03424691275903301
+int linear mean: 0.12742069288940333 std: 0.0285914636284331
+int linear mean: 0.44182950409440186 std: 0.017631118806035777
+int linear mean: 0.03237072202007083 std: 0.020587057726151006
+int linear mean: 0.9025833501145655 std: 0.011377835768507972
+int logistic mean: 0.5048828125 std: 0.015440808887540914
+Step: 1 	 Loss: 5.5360 	 <Loss>: 5.5360 	
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+linear mean: 0.15188791441607813 std: 0.01997478101365363
+linear mean: 0.020810809266540487 std: 0.008573344312929658
+linear mean: 0.07493143490746249 std: 0.021382586006678375
+linear mean: -0.0017081487907769088 std: 0.009745537535349886
+linear mean: 0.03155704119386525 std: 0.016328150059200474
+linear mean: 0.07856130535474493 std: 0.014984706071916976
+linear mean: 0.020861599832242606 std: 0.005559948330314268
+linear mean: 0.6491539142594998 std: 0.017496453740734122
+linear mean: -0.001478215829991636 std: 0.01674964831145182
+linear mean: 0.9263753829441275 std: 0.006279459406421905
+logistic mean: 0.3761749507874016 std: 0.0065201712704213615
+int linear mean: 0.29389404276457715 std: 0.03279183665273539
+int linear mean: 0.49173739738257344 std: 0.032075808184193665
+int linear mean: 0.25247502859692633 std: 0.02869910052167027
+int linear mean: 0.030781388396270527 std: 0.025324388521422207
+int linear mean: 0.01973469089960994 std: 0.017996773228925483
+int linear mean: 0.09185039223060454 std: 0.03273304775828944
+int linear mean: 0.1705307110472351 std: 0.030990624657729754
+int linear mean: 0.7884851020526076 std: 0.013085025513710716
+int linear mean: 0.14012132982342237 std: 0.026336819111549368
+int linear mean: 0.9811429026668319 std: 0.002691749478765217
+int logistic mean: 0.5783879798228346 std: 0.015093630598344305
+Step: 501 	 Loss: 5.1526 	 <Loss>: 5.2960 	
+It took 403.55 seconds to run.
+device: cuda
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 8
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: 
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 256
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 8
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: models/workers8_apply_random_crop_apply_color_distortion_seed0_batch_size256_n_steps501
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 256
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+/home/mila/h/horoiste/ssl_identifiability/main_3dident.py:123: DeprecationWarning: BICUBIC is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.BICUBIC instead.
+  interpolation=Image.BICUBIC),
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/transforms/transforms.py:899: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:135: UserWarning: Using 'weights' as positional parameter(s) is deprecated since 0.13 and may be removed in the future. Please use keyword parameter(s) instead.
+  warnings.warn(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+f:  DataParallel(
+  (module): Sequential(
+    (0): ResNet(
+      (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      (layer1): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer2): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer3): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer4): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+      (fc): Linear(in_features=512, out_features=100, bias=True)
+    )
+    (1): Sequential(
+      (0): LeakyReLU(negative_slope=0.01)
+      (1): Linear(in_features=100, out_features=9, bias=True)
+    )
+  )
+)
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+linear mean: 0.08970460717820743 std: 0.020359840110070113
+linear mean: 0.17474259718423418 std: 0.01928908094278502
+linear mean: 0.06560424578437336 std: 0.016556457765430466
+linear mean: 0.00044487501367120876 std: 0.0078111454167051645
+linear mean: -0.0029981542853600553 std: 0.005106129462453444
+linear mean: 0.03487155383042725 std: 0.013616696666652398
+linear mean: 0.05988103114559175 std: 0.02384423143426698
+linear mean: 0.12606332971501405 std: 0.01662804109277437
+linear mean: 0.004404488588086031 std: 0.012413704519359373
+linear mean: 0.714935004327917 std: 0.01217161773165331
+logistic mean: 0.27841796875 std: 0.014696860070193617
+int linear mean: 0.2674432703420571 std: 0.021600291330816652
+int linear mean: 0.47091954943498154 std: 0.024552391300083878
+int linear mean: 0.25160055839418727 std: 0.02868741711889679
+int linear mean: -0.04624235219803482 std: 0.03296212279437211
+int linear mean: -0.03406911056369968 std: 0.015667611048407457
+int linear mean: 0.03097268939251051 std: 0.02293349773932873
+int linear mean: 0.13430740770847166 std: 0.026047211335608396
+int linear mean: 0.4489884584708787 std: 0.01704095456116199
+int linear mean: 0.030009546243972417 std: 0.017310669833105825
+int linear mean: 0.9063345404511771 std: 0.009885879363872987
+int logistic mean: 0.5126953125 std: 0.016088107703289913
+Step: 1 	 Loss: 6.2365 	 <Loss>: 6.2365 	
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+linear mean: 0.16197402550936618 std: 0.021026916694615316
+linear mean: 0.05128887601192654 std: 0.017322015748995556
+linear mean: 0.09055225484483116 std: 0.015851341629376563
+linear mean: 0.03047362399884137 std: 0.011356713316763842
+linear mean: 0.029957997477604394 std: 0.015381281015524682
+linear mean: 0.07131132560239883 std: 0.009935040160847374
+linear mean: 0.013889249301498851 std: 0.013897438914843354
+linear mean: 0.6706225972614124 std: 0.015243396699734513
+linear mean: 0.004725338812285785 std: 0.010269872357144402
+linear mean: 0.8936179423403166 std: 0.006432646822084878
+logistic mean: 0.351234243697479 std: 0.02135612301360124
+int linear mean: 0.3035598494340249 std: 0.025337402599880546
+int linear mean: 0.46473521670471046 std: 0.024675843486469774
+int linear mean: 0.3016237570514925 std: 0.031938656651106914
+int linear mean: 0.06426440045781565 std: 0.025998300910724883
+int linear mean: 0.008631235416281403 std: 0.03418915575548468
+int linear mean: 0.06051931839263279 std: 0.029702564967646946
+int linear mean: 0.19098918566903872 std: 0.0384853555167751
+int linear mean: 0.8234919245984009 std: 0.006880798541258209
+int linear mean: 0.16295377581990203 std: 0.034336555247049316
+int linear mean: 0.9867107840167657 std: 0.003902066797175473
+int logistic mean: 0.5959829634978991 std: 0.015928546369385968
+Step: 501 	 Loss: 5.8078 	 <Loss>: 5.9233 	
+It took 541.12 seconds to run.
+device: cuda
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 8
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: 
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 512
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 8
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: models/workers8_apply_random_crop_apply_color_distortion_seed0_n_steps501
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 512
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+/home/mila/h/horoiste/ssl_identifiability/main_3dident.py:123: DeprecationWarning: BICUBIC is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.BICUBIC instead.
+  interpolation=Image.BICUBIC),
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/transforms/transforms.py:899: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:135: UserWarning: Using 'weights' as positional parameter(s) is deprecated since 0.13 and may be removed in the future. Please use keyword parameter(s) instead.
+  warnings.warn(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+f:  DataParallel(
+  (module): Sequential(
+    (0): ResNet(
+      (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      (layer1): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer2): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer3): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer4): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+      (fc): Linear(in_features=512, out_features=100, bias=True)
+    )
+    (1): Sequential(
+      (0): LeakyReLU(negative_slope=0.01)
+      (1): Linear(in_features=100, out_features=9, bias=True)
+    )
+  )
+)
+Traceback (most recent call last):
+  File "/home/mila/h/horoiste/ssl_identifiability/main_3dident.py", line 487, in <module>
+    main()
+  File "/home/mila/h/horoiste/ssl_identifiability/main_3dident.py", line 235, in main
+    total_loss_value, losses_value = train_step(
+  File "/home/mila/h/horoiste/ssl_identifiability/main_3dident.py", line 183, in train_step
+    z1_rec = f(x1)
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/nn/parallel/data_parallel.py", line 169, in forward
+    return self.module(*inputs[0], **kwargs[0])
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/nn/modules/container.py", line 204, in forward
+    input = module(input)
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/resnet.py", line 285, in forward
+    return self._forward_impl(x)
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/resnet.py", line 268, in _forward_impl
+    x = self.conv1(x)
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 463, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/nn/modules/conv.py", line 459, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 9179) is killed by signal: Killed. 
+device: cuda
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 12
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: 
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 128
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 12
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: models/workers12_apply_random_crop_apply_color_distortion_seed0_batch_size128_n_steps501
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 128
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+/home/mila/h/horoiste/ssl_identifiability/main_3dident.py:123: DeprecationWarning: BICUBIC is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.BICUBIC instead.
+  interpolation=Image.BICUBIC),
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/transforms/transforms.py:899: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:135: UserWarning: Using 'weights' as positional parameter(s) is deprecated since 0.13 and may be removed in the future. Please use keyword parameter(s) instead.
+  warnings.warn(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+f:  DataParallel(
+  (module): Sequential(
+    (0): ResNet(
+      (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      (layer1): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer2): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer3): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer4): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+      (fc): Linear(in_features=512, out_features=100, bias=True)
+    )
+    (1): Sequential(
+      (0): LeakyReLU(negative_slope=0.01)
+      (1): Linear(in_features=100, out_features=9, bias=True)
+    )
+  )
+)
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+linear mean: 0.0812004939930803 std: 0.024572031324489225
+linear mean: 0.16404566315817148 std: 0.01996032752162479
+linear mean: 0.0690360022009943 std: 0.017054607842581983
+linear mean: -0.003191878507513013 std: 0.007549810057096621
+linear mean: -0.005181819788867603 std: 0.006988000849137925
+linear mean: 0.027837509112651683 std: 0.012825069635412549
+linear mean: 0.018260519934871842 std: 0.01622120149102699
+linear mean: 0.1317287975479199 std: 0.019321207248438343
+linear mean: 0.00993901528249368 std: 0.012484144129259984
+linear mean: 0.712069970033773 std: 0.012265451501561673
+logistic mean: 0.2865234375 std: 0.0120017902310447
+int linear mean: 0.27282710247111985 std: 0.014633511287472077
+int linear mean: 0.46209184613290366 std: 0.022921481370249654
+int linear mean: 0.24323606326183417 std: 0.029616881242721493
+int linear mean: -0.05276416363286747 std: 0.028571722540153326
+int linear mean: -0.03218598716999219 std: 0.021438915100907053
+int linear mean: 0.022623285451182105 std: 0.03424529445916914
+int linear mean: 0.1274205203948648 std: 0.02859209873135024
+int linear mean: 0.44183013978984614 std: 0.017630405887239728
+int linear mean: 0.032369654510586356 std: 0.020587116906493872
+int linear mean: 0.9025831215286335 std: 0.011377913919203597
+int logistic mean: 0.50595703125 std: 0.014288881495743956
+Step: 1 	 Loss: 5.5360 	 <Loss>: 5.5360 	
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+linear mean: 0.06878617060095803 std: 0.015977765586236523
+linear mean: 0.033409091666686 std: 0.006879951289090767
+linear mean: 0.06055204031863626 std: 0.014744566647619224
+linear mean: -0.010698177484271576 std: 0.0063812619358543776
+linear mean: 0.03254398696737844 std: 0.014443363557374675
+linear mean: 0.0492146323384698 std: 0.01447263081533035
+linear mean: 0.007472141305089441 std: 0.009855511931473507
+linear mean: 0.6361242061930208 std: 0.016222729000380333
+linear mean: 0.007737678002154491 std: 0.00946759302941146
+linear mean: 0.9383011499952497 std: 0.0036616031350091235
+logistic mean: 0.3535033218503937 std: 0.015312121558063102
+int linear mean: 0.2760145202625993 std: 0.027474830026918553
+int linear mean: 0.3491917214506158 std: 0.015253559168736346
+int linear mean: 0.21523208769998656 std: 0.023668454508246464
+int linear mean: 0.035566420132545074 std: 0.029894190431741276
+int linear mean: -0.0168983835021136 std: 0.034654417879227406
+int linear mean: 0.0519758798631446 std: 0.037324819918128534
+int linear mean: 0.1879127321163915 std: 0.015943700620066267
+int linear mean: 0.7681347310209194 std: 0.020014420177857876
+int linear mean: 0.17591615254715495 std: 0.041151744337154246
+int linear mean: 0.9814126506437069 std: 0.0029124754428867883
+int logistic mean: 0.5301150344488189 std: 0.01226249174010936
+Step: 501 	 Loss: 5.2780 	 <Loss>: 5.3079 	
+It took 384.6 seconds to run.
+device: cuda
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 12
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: 
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 256
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 12
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: models/workers12_apply_random_crop_apply_color_distortion_seed0_batch_size256_n_steps501
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 256
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+/home/mila/h/horoiste/ssl_identifiability/main_3dident.py:123: DeprecationWarning: BICUBIC is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.BICUBIC instead.
+  interpolation=Image.BICUBIC),
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/transforms/transforms.py:899: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:135: UserWarning: Using 'weights' as positional parameter(s) is deprecated since 0.13 and may be removed in the future. Please use keyword parameter(s) instead.
+  warnings.warn(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+f:  DataParallel(
+  (module): Sequential(
+    (0): ResNet(
+      (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      (layer1): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer2): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer3): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer4): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+      (fc): Linear(in_features=512, out_features=100, bias=True)
+    )
+    (1): Sequential(
+      (0): LeakyReLU(negative_slope=0.01)
+      (1): Linear(in_features=100, out_features=9, bias=True)
+    )
+  )
+)
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+linear mean: 0.0897045858563268 std: 0.020359834840256094
+linear mean: 0.17474284084938843 std: 0.01928904147008586
+linear mean: 0.06560402687654017 std: 0.016556381627417134
+linear mean: 0.0004449414774886695 std: 0.007811128448542771
+linear mean: -0.002998197075881159 std: 0.005106161544413666
+linear mean: 0.03487148010387513 std: 0.013616827400721357
+linear mean: 0.05988112150169265 std: 0.023844267898808547
+linear mean: 0.12606332925500705 std: 0.016628064081550067
+linear mean: 0.004404519221040859 std: 0.012413784616823942
+linear mean: 0.7149345139341116 std: 0.012171597672081832
+logistic mean: 0.27841796875 std: 0.014696860070193617
+int linear mean: 0.2674432095425866 std: 0.021600328642235902
+int linear mean: 0.4709194976226482 std: 0.024552572685366373
+int linear mean: 0.2516003604929558 std: 0.028687702669637646
+int linear mean: -0.046242446235791865 std: 0.03296197814875765
+int linear mean: -0.03406947381047139 std: 0.01566779730820801
+int linear mean: 0.030972523252942884 std: 0.022932915096574684
+int linear mean: 0.1343072239835903 std: 0.026047138699185436
+int linear mean: 0.44898851274175344 std: 0.0170406896766599
+int linear mean: 0.03000988572069605 std: 0.017310533989312857
+int linear mean: 0.906334564221735 std: 0.009885925112466207
+int logistic mean: 0.51201171875 std: 0.015173217085497487
+Step: 1 	 Loss: 6.2365 	 <Loss>: 6.2365 	
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+linear mean: 0.18356067533102183 std: 0.03016791512979974
+linear mean: 0.07877608842763176 std: 0.013748098624883916
+linear mean: 0.11157214860362777 std: 0.012676213166886253
+linear mean: 0.04615059024063484 std: 0.012529783807763834
+linear mean: 0.0406488463188577 std: 0.016411718613414984
+linear mean: 0.09364960532094702 std: 0.020187274185453023
+linear mean: 0.019793413320225127 std: 0.019487036234755603
+linear mean: 0.6420226538758114 std: 0.017952930813385823
+linear mean: 0.030074089700777427 std: 0.014451707747006878
+linear mean: 0.9323753062517348 std: 0.004898349603155898
+logistic mean: 0.37080980829831933 std: 0.01594669835580865
+int linear mean: 0.3252109017229201 std: 0.03513365699096927
+int linear mean: 0.4807760203948418 std: 0.01869515410632689
+int linear mean: 0.2932358258446707 std: 0.025790867485070562
+int linear mean: 0.08166379189527889 std: 0.030033387701278048
+int linear mean: 0.03226781437932329 std: 0.02451425449197831
+int linear mean: 0.07141680956821445 std: 0.03777382314028014
+int linear mean: 0.17934198464774262 std: 0.03923333751189007
+int linear mean: 0.8081894156300015 std: 0.009804588230673076
+int linear mean: 0.1459344130451327 std: 0.04098299516223536
+int linear mean: 0.9866194203904468 std: 0.0034719146466862323
+int logistic mean: 0.6350257681197479 std: 0.0171246620860496
+Step: 501 	 Loss: 5.7710 	 <Loss>: 5.9204 	
+It took 540.62 seconds to run.
+device: cuda
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 12
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: 
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 512
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+Arguments:
+	change_all_hues: False
+	change_all_positions: False
+	change_all_rotations: False
+	offline_dataset: data
+	encoder: rn18
+	tau: 1.0
+	faiss_omp_threads: 16
+	workers: 12
+	apply_rotation: False
+	apply_random_crop: True
+	random_crop_type: small
+	apply_color_distortion: True
+	n_eval_samples: 2048
+	save_every: 10000
+	evaluate_iter: 20000
+	content_n: 8
+	evaluate: False
+	model_dir: models
+	num_train_batches: 5
+	save_dir: models/workers12_apply_random_crop_apply_color_distortion_seed0_n_steps501
+	num_eval_batches: 10
+	seed: 0
+	c_param: 1.0
+	lr: 0.0001
+	no_cuda: False
+	load_f: None
+	load_g: None
+	batch_size: 512
+	n_log_steps: 500
+	n_steps: 501
+	resume_training: False
+/home/mila/h/horoiste/ssl_identifiability/main_3dident.py:123: DeprecationWarning: BICUBIC is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.BICUBIC instead.
+  interpolation=Image.BICUBIC),
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/transforms/transforms.py:899: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+WARNING clustering 3600 points to 1024 centroids: please provide at least 39936 training points
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:135: UserWarning: Using 'weights' as positional parameter(s) is deprecated since 0.13 and may be removed in the future. Please use keyword parameter(s) instead.
+  warnings.warn(
+/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+f:  DataParallel(
+  (module): Sequential(
+    (0): ResNet(
+      (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      (layer1): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer2): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer3): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (layer4): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (downsample): Sequential(
+            (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+            (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BasicBlock(
+          (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+      (fc): Linear(in_features=512, out_features=100, bias=True)
+    )
+    (1): Sequential(
+      (0): LeakyReLU(negative_slope=0.01)
+      (1): Linear(in_features=100, out_features=9, bias=True)
+    )
+  )
+)
+Traceback (most recent call last):
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1120, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/queue.py", line 180, in get
+    self.not_empty.wait(remaining)
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/threading.py", line 316, in wait
+    gotit = waiter.acquire(True, timeout)
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 19543) is killed by signal: Killed. 
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/mila/h/horoiste/ssl_identifiability/main_3dident.py", line 487, in <module>
+    main()
+  File "/home/mila/h/horoiste/ssl_identifiability/main_3dident.py", line 234, in main
+    data = next(train_iterator)
+  File "/home/mila/h/horoiste/ssl_identifiability/infinite_iterator.py", line 16, in __next__
+    return next(self.iterator)
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 628, in __next__
+    data = self._next_data()
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1316, in _next_data
+    idx, data = self._get_data()
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1272, in _get_data
+    success, data = self._try_get_data()
+  File "/home/mila/h/horoiste/.conda/envs/ssl_identifiability/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1133, in _try_get_data
+    raise RuntimeError('DataLoader worker (pid(s) {}) exited unexpectedly'.format(pids_str)) from e
+RuntimeError: DataLoader worker (pid(s) 19543) exited unexpectedly
+
+======== GPU REPORT ========
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Sun Dec 11 14:52:07 2022
+Driver Version                            : 515.65.01
+CUDA Version                              : 11.7
+
+Attached GPUs                             : 1
+GPU 00000000:14:00.0
+    Accounting Mode                       : Enabled
+    Accounting Mode Buffer Size           : 4000
+    Accounted Processes
+        Process ID                        : 25599
+            GPU Utilization               : 28 %
+            Memory Utilization            : 21 %
+            Max memory usage              : 7007 MiB
+            Time                          : 509411 ms
+            Is Running                    : 0
+        Process ID                        : 28862
+            GPU Utilization               : 33 %
+            Memory Utilization            : 23 %
+            Max memory usage              : 14499 MiB
+            Time                          : 824064 ms
+            Is Running                    : 0
+        Process ID                        : 33417
+            GPU Utilization               : 39 %
+            Memory Utilization            : 28 %
+            Max memory usage              : 27999 MiB
+            Time                          : 1331549 ms
+            Is Running                    : 0
+        Process ID                        : 40497
+            GPU Utilization               : 35 %
+            Memory Utilization            : 26 %
+            Max memory usage              : 7007 MiB
+            Time                          : 412057 ms
+            Is Running                    : 0
+        Process ID                        : 3829
+            GPU Utilization               : 49 %
+            Memory Utilization            : 35 %
+            Max memory usage              : 14499 MiB
+            Time                          : 550182 ms
+            Is Running                    : 0
+        Process ID                        : 8057
+            GPU Utilization               : 0 %
+            Memory Utilization            : 0 %
+            Max memory usage              : 3035 MiB
+            Time                          : 217769 ms
+            Is Running                    : 0
+        Process ID                        : 10125
+            GPU Utilization               : 37 %
+            Memory Utilization            : 27 %
+            Max memory usage              : 7007 MiB
+            Time                          : 394094 ms
+            Is Running                    : 0
+        Process ID                        : 14024
+            GPU Utilization               : 49 %
+            Memory Utilization            : 34 %
+            Max memory usage              : 14499 MiB
+            Time                          : 551875 ms
+            Is Running                    : 0
+        Process ID                        : 18789
+            GPU Utilization               : 0 %
+            Memory Utilization            : 0 %
+            Max memory usage              : 735 MiB
+            Time                          : 58303 ms
+            Is Running                    : 0
+
+Sun Dec 11 14:52:07 2022       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.65.01    Driver Version: 515.65.01    CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Quadro RTX 8000     Off  | 00000000:14:00.0 Off |                  Off |
+| 33%   27C    P8     7W / 260W |      0MiB / 49152MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+slurmstepd: error: Detected 2 oom-kill event(s) in StepId=2550595.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.

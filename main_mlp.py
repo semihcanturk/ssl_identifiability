@@ -20,7 +20,7 @@ if use_cuda:
 else:
     device = "cpu"
 
-print("device:", device)
+print("device:", device, flush=True)
 
 def valid_str(v):
     if hasattr(v, '__name__'):
@@ -70,9 +70,9 @@ def parse_args():
     parser.add_argument("--resume-training", action="store_true")
     args = parser.parse_args()
 
-    print("Arguments:")
+    print("Arguments:", flush=True)
     for k, v in vars(args).items():
-        print(f"\t{k}: {v}")
+        print(f"\t{k}: {v}", flush=True)
 
     return args, parser
 
@@ -84,13 +84,13 @@ def main():
     else:
         args.load_f = os.path.join(args.model_dir, get_exp_name(args, parser),'unsup_f.pth')
         args.n_steps = 1
-    print("Arguments:")
+    print("Arguments:", flush=True)
     for k, v in vars(args).items():
-        print(f"\t{k}: {v}")
+        print(f"\t{k}: {v}", flush=True)
     global device
     if args.no_cuda:
         device = "cpu"
-        print("Using cpu")
+        print("Using cpu", flush=True)
     if args.seed is not None:
         np.random.seed(args.seed)
         random.seed(args.seed)
@@ -197,7 +197,7 @@ def main():
     if args.load_f is not None:
         f.load_state_dict(torch.load(args.load_f, map_location=device))
 
-    print("f: ", f)
+    print("f: ", f, flush=True)
     optimizer = torch.optim.Adam(f.parameters(), lr=args.lr)
     h = lambda z: f(g(z))
 
@@ -309,12 +309,14 @@ def main():
             print(
                 "content linear mean: {} std: {}".format(
                     np.mean(content_linear_scores), np.std(content_linear_scores)
-                )
+                ),
+                flush=True
             )
             print(
                 "style linear mean: {} std: {}".format(
                     np.mean(style_linear_scores), np.std(style_linear_scores)
-                )
+                ),
+                flush=True
             )
             if args.evaluate:
                 print(
@@ -322,19 +324,22 @@ def main():
                         np.mean(content_nonlinear_scores, axis=0), 
                         np.std(content_nonlinear_scores, 
                                                                           axis=0)
-                    )
+                    ),
+                    flush=True
                 )
                 print(
                     "style nonlinear mean: {} std: {}".format(
                         np.mean(style_nonlinear_scores, axis=0), np.std(style_nonlinear_scores, 
                                                                         axis=0)
-                    )
+                    ),
+                    flush=True
                 )
             if not args.evaluate and (global_step % args.n_log_steps == 1 or global_step == args.n_steps):
                 print(
                     f"Step: {global_step} \t",
                     f"Loss: {total_loss_value:.4f} \t",
                     f"<Loss>: {np.mean(np.array(total_loss_values[-args.n_log_steps:])):.4f} \t",
+                    flush=True
                 )
             if args.save_dir:
                 if not os.path.exists(args.save_dir):
