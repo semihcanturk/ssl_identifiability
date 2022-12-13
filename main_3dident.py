@@ -34,7 +34,7 @@ def valid_str(v):
     str_v = ''.join(c if c in valid_chars else '-' for c in str_v)
     return str_v
 
-def get_exp_name(args, parser, blacklist=['evaluate',  
+def get_exp_name(args, parser, blacklist=['evaluate', 'resume_training',
                                           'num_train_batches', 'num_eval_batches',
                                           'offline_dataset', 'evaluate_iter', 'n_eval_samples']):
     exp_name = ''
@@ -219,6 +219,21 @@ def main():
     if not args.evaluate:
         train_iterator = InfiniteIterator(train_loader)
     test_iterator = InfiniteIterator(test_loader)
+
+    if args.resume_training:
+        cps = os.listdir(args.save_dir)
+        cp_iter = cps[-1].rpartition('_')[-1]
+        if int(cp_iter) >= args.n_steps:
+            print("model already trained max_steps", flush=True)
+            exit(0)
+        checkpoint = torch.load(os.path.join(args.save_dir, cps[-1]))
+        f.load_state_dict(checkpoint['f'])
+        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+        step = checkpoint['step']
+        total_loss_values = checkpoint['total_loss_values']
+        individual_losses_values = checkpoint['individual_losses_values']
+
+
     if (
         "total_loss_values" in locals() and not args.resume_training
     ) or "total_loss_values" not in locals():
@@ -226,7 +241,8 @@ def main():
         total_loss_values = []
 
     global_step = len(total_loss_values) + 1
-    last_save_at_step = 0
+    last_save_at_step = 0 if "last_save_at_step" in locals() else step
+
     while (
         global_step <= args.n_steps
     ):
@@ -475,9 +491,17 @@ def main():
             if args.save_every is not None:
                 if global_step // args.save_every != last_save_at_step // args.save_every:
                     last_save_at_step = global_step
-                    model_path = args.save_dir + f".iteration_{global_step}"
-                    torch.save(f.state_dict(), model_path)
-                    torch.save(f.state_dict(), args.save_dir)
+                    if args.save_dir:
+                        if not os.path.exists(args.save_dir):
+                            os.makedirs(args.save_dir)
+                    model_path = args.save_dir + f"/iteration_{global_step}"
+                    torch.save({
+                        'step': global_step,
+                        'f': f.state_dict(),
+                        'optimizer_state_dict': optimizer.state_dict(),
+                        'total_loss_values': total_loss_values,
+                        'individual_losses_values': individual_losses_values
+                    }, model_path)
         global_step += 1
        
 
