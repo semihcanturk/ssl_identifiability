@@ -64,7 +64,7 @@ def parse_args():
     parser.add_argument("--apply-color-distortion", action="store_true")
     parser.add_argument("--n-eval-samples", default=2048, type=int)
     parser.add_argument("--save-every", default=10000, type=int)
-    parser.add_argument("--evaluate-iter", type=int, default=20000)
+    parser.add_argument("--evaluate-iter", type=int, default=100001)
     parser.add_argument("--content-n", type=int, default=8)
     parser.add_argument("--evaluate", action='store_true')
     parser.add_argument("--model-dir", type=str, default="models")
@@ -241,7 +241,7 @@ def main():
         total_loss_values = []
 
     global_step = len(total_loss_values) + 1
-    last_save_at_step = 0 if "last_save_at_step" in locals() else step
+    last_save_at_step = step if "step" in locals() else 0
 
     while (
         global_step <= args.n_steps

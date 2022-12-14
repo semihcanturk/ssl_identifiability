@@ -222,7 +222,7 @@ def main():
         total_loss_values = []
 
     global_step = len(total_loss_values) + 1
-    last_save_at_step = 0 if "last_save_at_step" in locals() else step
+    last_save_at_step = step if "step" in locals() else 0
     while (
         global_step <= args.n_steps
     ):
