@@ -216,23 +216,27 @@ def main():
 
     print("f: ", f, flush=True)
     optimizer = torch.optim.Adam(f.parameters(), lr=args.lr)
+
     if not args.evaluate:
         train_iterator = InfiniteIterator(train_loader)
     test_iterator = InfiniteIterator(test_loader)
 
     if args.resume_training:
-        cps = os.listdir(args.save_dir)
-        cp_iter = cps[-1].rpartition('_')[-1]
-        if int(cp_iter) >= args.n_steps:
-            print("model already trained max_steps", flush=True)
-            exit(0)
-        checkpoint = torch.load(os.path.join(args.save_dir, cps[-1]))
-        f.load_state_dict(checkpoint['f'])
-        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-        step = checkpoint['step']
-        total_loss_values = checkpoint['total_loss_values']
-        individual_losses_values = checkpoint['individual_losses_values']
+        try:
+            cps = os.listdir(args.save_dir)
+            cp_iter = cps[-1].rpartition('_')[-1]
+            if int(cp_iter) >= args.n_steps:
+                print("model already trained max_steps", flush=True)
+                exit(0)
 
+            checkpoint = torch.load(os.path.join(args.save_dir, cps[-1]))
+            f.load_state_dict(checkpoint['f'])
+            optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+            step = checkpoint['step']
+            total_loss_values = checkpoint['total_loss_values']
+            individual_losses_values = checkpoint['individual_losses_values']
+        except:
+            print("No checkpoint found! Starting from step 0.")
 
     if (
         "total_loss_values" in locals() and not args.resume_training
