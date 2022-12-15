@@ -95,8 +95,7 @@ def main():
     if not args.evaluate:
         args.save_dir = os.path.join(args.model_dir, get_exp_name(args, parser))
     else:
-        args.load_f = os.path.join(args.model_dir, '{}.iteration_{}'.format(get_exp_name(args, parser), 
-                                                                                args.evaluate_iter))
+        args.load_f = os.path.join(args.model_dir, get_exp_name(args, parser), f'iteration_{args.evaluate_iter}')
         args.n_steps = 1
     print("Arguments:", flush=True)
     for k, v in vars(args).items():
