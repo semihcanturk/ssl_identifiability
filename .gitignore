@@ -130,3 +130,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# added
+data/*
+code_backups/*
+models/*
+scripts/*
