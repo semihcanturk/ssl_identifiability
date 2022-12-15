@@ -211,7 +211,8 @@ def main():
     f = f.to(device)
 
     if args.load_f is not None:
-        f.load_state_dict(torch.load(args.load_f, map_location=device))
+        checkpoint = torch.load(args.load_f, map_location=device)
+        f.load_state_dict(checkpoint['f'])
 
     print("f: ", f, flush=True)
     optimizer = torch.optim.Adam(f.parameters(), lr=args.lr)
@@ -228,7 +229,7 @@ def main():
                 print("model already trained max_steps", flush=True)
                 exit(0)
 
-            checkpoint = torch.load(os.path.join(args.save_dir, cps[-1]))
+            checkpoint = torch.load(os.path.join(args.save_dir, cps[-1]), map_location=device)
             f.load_state_dict(checkpoint['f'])
             optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
             step = checkpoint['step']
