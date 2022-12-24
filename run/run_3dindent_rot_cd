@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH --output=/home/mila/s/semih.canturk/scratch/ssl_identifiability/logs/slurm-%j.out
+#SBATCH --ntasks=1
+#SBATCH --time=96:00:00
+#SBATCH --mem=64Gb
+#SBATCH -c 12
+#SBATCH --gres=gpu:rtx8000:1
+#SBATCH --partition=long
+
+module purge
+module load cuda/11.2/cudnn/8.1 anaconda/3
+
+conda activate ssl-id
+cd /home/mila/s/semih.canturk/scratch/ssl_identifiability
+
+python main_3dident.py --offline-dataset 'datasets' --seed 2 --workers 8 --apply-rotation --apply-color-distortion --resume-training --mix
+python main_3dident.py --offline-dataset 'datasets' --seed 2 --workers 8 --apply-rotation --apply-color-distortion --mix --evaluate --evaluate-iter 40001
+
+conda deactivate

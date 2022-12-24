@@ -20,7 +20,7 @@ if use_cuda:
 else:
     device = "cpu"
 
-print("device:", device)
+print("device:", device, flush=True)
 
 def valid_str(v):
     if hasattr(v, '__name__'):
@@ -32,7 +32,7 @@ def valid_str(v):
     str_v = ''.join(c if c in valid_chars else '-' for c in str_v)
     return str_v
 
-def get_exp_name(args, parser, blacklist=['evaluate', 'num_train_batches', 'num_eval_batches', 'evaluate_iter']):
+def get_exp_name(args, parser, blacklist=['evaluate', 'num_train_batches', 'num_eval_batches', 'evaluate_iter', 'resume_training']):
     exp_name = ''
     for x in vars(args):
         if getattr(args, x) != parser.get_default(x) and x not in blacklist:
@@ -51,6 +51,7 @@ def parse_args():
     parser.add_argument("--style-change-prob", type=float, default=1.0)
     parser.add_argument("--statistical-dependence", action='store_true')
     parser.add_argument("--content-dependent-style", action='store_true')
+    parser.add_argument("--save-every", default=1000, type=int)
     parser.add_argument("--evaluate", action='store_true')
     parser.add_argument("--model-dir", type=str, default="models")
     parser.add_argument("--num-train-batches", type=int, default=5)
@@ -70,9 +71,9 @@ def parse_args():
     parser.add_argument("--resume-training", action="store_true")
     args = parser.parse_args()
 
-    print("Arguments:")
+    print("Arguments:", flush=True)
     for k, v in vars(args).items():
-        print(f"\t{k}: {v}")
+        print(f"\t{k}: {v}", flush=True)
 
     return args, parser
 
@@ -84,13 +85,13 @@ def main():
     else:
         args.load_f = os.path.join(args.model_dir, get_exp_name(args, parser),'unsup_f.pth')
         args.n_steps = 1
-    print("Arguments:")
+    print("Arguments:", flush=True)
     for k, v in vars(args).items():
-        print(f"\t{k}: {v}")
+        print(f"\t{k}: {v}", flush=True)
     global device
     if args.no_cuda:
         device = "cpu"
-        print("Using cpu")
+        print("Using cpu", flush=True)
     if args.seed is not None:
         np.random.seed(args.seed)
         random.seed(args.seed)
@@ -197,9 +198,22 @@ def main():
     if args.load_f is not None:
         f.load_state_dict(torch.load(args.load_f, map_location=device))
 
-    print("f: ", f)
+    print("f: ", f, flush=True)
     optimizer = torch.optim.Adam(f.parameters(), lr=args.lr)
     h = lambda z: f(g(z))
+
+    if args.resume_training:
+        cps = os.listdir(args.save_dir)
+        cp_iter = cps[-1].rpartition('_')[-1]
+        if int(cp_iter) >= args.n_steps:
+            print("model already trained max_steps", flush=True)
+            exit(0)
+        checkpoint = torch.load(os.path.join(args.save_dir, cps[-1]))
+        f.load_state_dict(checkpoint['f'])
+        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+        step = checkpoint['step']
+        total_loss_values = checkpoint['total_loss_values']
+        individual_losses_values = checkpoint['individual_losses_values']
 
     if (
         "total_loss_values" in locals() and not args.resume_training
@@ -208,7 +222,7 @@ def main():
         total_loss_values = []
 
     global_step = len(total_loss_values) + 1
-    last_save_at_step = 0
+    last_save_at_step = step if "step" in locals() else 0
     while (
         global_step <= args.n_steps
     ):
@@ -309,12 +323,14 @@ def main():
             print(
                 "content linear mean: {} std: {}".format(
                     np.mean(content_linear_scores), np.std(content_linear_scores)
-                )
+                ),
+                flush=True
             )
             print(
                 "style linear mean: {} std: {}".format(
                     np.mean(style_linear_scores), np.std(style_linear_scores)
-                )
+                ),
+                flush=True
             )
             if args.evaluate:
                 print(
@@ -322,29 +338,48 @@ def main():
                         np.mean(content_nonlinear_scores, axis=0), 
                         np.std(content_nonlinear_scores, 
                                                                           axis=0)
-                    )
+                    ),
+                    flush=True
                 )
                 print(
                     "style nonlinear mean: {} std: {}".format(
                         np.mean(style_nonlinear_scores, axis=0), np.std(style_nonlinear_scores, 
                                                                         axis=0)
-                    )
+                    ),
+                    flush=True
                 )
             if not args.evaluate and (global_step % args.n_log_steps == 1 or global_step == args.n_steps):
                 print(
                     f"Step: {global_step} \t",
                     f"Loss: {total_loss_value:.4f} \t",
                     f"<Loss>: {np.mean(np.array(total_loss_values[-args.n_log_steps:])):.4f} \t",
+                    flush=True
                 )
-            if args.save_dir:
-                if not os.path.exists(args.save_dir):
-                    os.makedirs(args.save_dir)
-                torch.save(
-                    f.state_dict(),
-                    os.path.join(
-                        args.save_dir, "{}_f.pth".format("unsup")
-                    ),
-                )
+            if args.save_every is not None:
+                if global_step // args.save_every != last_save_at_step // args.save_every:
+                    last_save_at_step = global_step
+                    if args.save_dir:
+                        if not os.path.exists(args.save_dir):
+                            os.makedirs(args.save_dir)
+                    model_path = args.save_dir + f"/iteration_{global_step}.pt"
+                    torch.save({
+                        'step': global_step,
+                        'f': f.state_dict(),
+                        'optimizer_state_dict': optimizer.state_dict(),
+                        'total_loss_values': total_loss_values,
+                        'individual_losses_values': individual_losses_values
+                    }, model_path)
+                    # torch.save(f.state_dict(), model_path)
+                    # torch.save(f.state_dict(), args.save_dir)
+            # if args.save_dir:
+            #     if not os.path.exists(args.save_dir):
+            #         os.makedirs(args.save_dir)
+            #     torch.save(
+            #         f.state_dict(),
+            #         os.path.join(
+            #             args.save_dir, "{}_f.pth".format("unsup")
+            #         ),
+            #     )
         global_step += 1
 
 

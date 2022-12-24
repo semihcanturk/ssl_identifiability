@@ -14,6 +14,7 @@ from infinite_iterator import InfiniteIterator
 import faiss
 from torchvision import transforms
 from PIL import Image
+import time
 
 use_cuda = torch.cuda.is_available()
 if use_cuda:
@@ -21,7 +22,7 @@ if use_cuda:
 else:
     device = "cpu"
 
-print("device:", device)
+print("device:", device, flush=True)
 
 def valid_str(v):
     if hasattr(v, '__name__'):
@@ -33,7 +34,7 @@ def valid_str(v):
     str_v = ''.join(c if c in valid_chars else '-' for c in str_v)
     return str_v
 
-def get_exp_name(args, parser, blacklist=['evaluate',  
+def get_exp_name(args, parser, blacklist=['evaluate', 'resume_training',
                                           'num_train_batches', 'num_eval_batches',
                                           'offline_dataset', 'evaluate_iter', 'n_eval_samples']):
     exp_name = ''
@@ -45,6 +46,37 @@ def get_exp_name(args, parser, blacklist=['evaluate',
                 exp_name += '_' + x + valid_str(getattr(args, x))
     return exp_name.lstrip('_')
 
+class SoftCrossEntropy(torch.nn.Module):
+    def __init__(self):
+        super(SoftCrossEntropy, self).__init__()
+
+    def forward(self, logits, target):
+        probs = F.softmax(logits, 1)
+        loss = (- target * torch.log(probs)).sum(1).mean()
+
+        return loss
+def _mix_step(model, xis, xjs, zis, zjs, loss, args):
+    crit = SoftCrossEntropy()
+    B = xis.shape[0]
+    assert B % 2 == 0
+    sid = int(B / 2)
+
+    for x, z in zip([xis, xjs], [zjs, zis]):
+        x_1, x_2 = x[:sid], x[sid:]
+
+        # each image get different lambda
+        lam = torch.from_numpy(np.random.uniform(0, 1, size=(sid, 1, 1, 1))).float().to(x.device)
+        imgs_mix = lam * x_1 + (1 - lam) * x_2
+
+        z_mix = model(imgs_mix)
+        lbls_mix = torch.cat((torch.diag(lam.squeeze()), torch.diag((1 - lam).squeeze())), dim=1).to(device)
+        z_mix = F.normalize(z_mix, dim=1)
+
+        logits_mix = torch.mm(z_mix, z.transpose(0, 1))  # N/2 * N
+        logits_mix /= args.mix_temperature
+        loss += crit(logits_mix, lbls_mix) / 2
+
+    return loss
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -63,7 +95,7 @@ def parse_args():
     parser.add_argument("--apply-color-distortion", action="store_true")
     parser.add_argument("--n-eval-samples", default=2048, type=int)
     parser.add_argument("--save-every", default=10000, type=int)
-    parser.add_argument("--evaluate-iter", type=int, default=20000)
+    parser.add_argument("--evaluate-iter", type=int, default=100001)
     parser.add_argument("--content-n", type=int, default=8)
     parser.add_argument("--evaluate", action='store_true')
     parser.add_argument("--model-dir", type=str, default="models")
@@ -80,30 +112,33 @@ def parse_args():
     parser.add_argument("--n-log-steps", type=int, default=500)
     parser.add_argument("--n-steps", type=int, default=100001)
     parser.add_argument("--resume-training", action="store_true")
+    parser.add_argument("--mix", action="store_true")
+    parser.add_argument("--mix-temperature", type=float, default=0.5)
     args = parser.parse_args()
 
-    print("Arguments:")
+    print("Arguments:", flush=True)
     for k, v in vars(args).items():
-        print(f"\t{k}: {v}")
+        print(f"\t{k}: {v}", flush=True)
 
     return args, parser
 
 
 def main():
     args, parser = parse_args()
+    if args.mix:
+        print('Mixing!', flush=True)
     if not args.evaluate:
         args.save_dir = os.path.join(args.model_dir, get_exp_name(args, parser))
     else:
-        args.load_f = os.path.join(args.model_dir, '{}.iteration_{}'.format(get_exp_name(args, parser), 
-                                                                                args.evaluate_iter))
+        args.load_f = os.path.join(args.model_dir, get_exp_name(args, parser), f'iteration_{args.evaluate_iter}')
         args.n_steps = 1
-    print("Arguments:")
+    print("Arguments:", flush=True)
     for k, v in vars(args).items():
-        print(f"\t{k}: {v}")
+        print(f"\t{k}: {v}", flush=True)
     global device
     if args.no_cuda:
         device = "cpu"
-        print("Using cpu")
+        print("Using cpu", flush=True)
 
     if args.seed is not None:
         np.random.seed(args.seed)
@@ -117,9 +152,9 @@ def main():
     std_per_channel = [0.1201, 0.1457, 0.1082]
     transform_list = []
     if args.apply_random_crop:
-        transform_list += [transforms.RandomResizedCrop(224, 
-                                    scale=(0.08 if args.random_crop_type == "small" else 0.8, 1.0), 
-                                                        interpolation=Image.BICUBIC), 
+        transform_list += [transforms.RandomResizedCrop(224,
+                                    scale=(0.08 if args.random_crop_type == "small" else 0.8, 1.0),
+                                                        interpolation=Image.BICUBIC),
                            transforms.RandomHorizontalFlip()]
     if args.apply_color_distortion:
         def ColourDistortion(s=1.0):
@@ -141,8 +176,8 @@ def main():
     latent_dimensions_to_use = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     dataset_kwargs["latent_dimensions_to_use"] = latent_dimensions_to_use
     if not args.evaluate:
-        train_dataset = CausalDataset(classes=np.arange(7), 
-                                      root='{}/trainset'.format(args.offline_dataset), 
+        train_dataset = CausalDataset(classes=np.arange(7),
+                                      root='{}/trainset'.format(args.offline_dataset),
                                       biaugment=True,
                                     use_augmentations=use_augmentations,
                                     change_all_positions=args.change_all_positions,
@@ -151,15 +186,15 @@ def main():
                                       apply_rotation=args.apply_rotation,
                                       **dataset_kwargs)
     dataset_kwargs['transform'] = transforms.Compose(transform_test_list)
-    test_dataset = CausalDataset(classes=np.arange(7), 
-                                 root='{}/testset'.format(args.offline_dataset), 
-                                  biaugment=False, 
+    test_dataset = CausalDataset(classes=np.arange(7),
+                                 root='{}/testset'.format(args.offline_dataset),
+                                  biaugment=False,
                                   **dataset_kwargs)
     if not args.evaluate:
-        train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=args.batch_size, 
+        train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=args.batch_size,
                                            num_workers=args.workers,
                                            pin_memory=True, shuffle=True)
-    test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, 
+    test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size,
                                               num_workers=args.workers,
                                                pin_memory=True, shuffle=True)
 
@@ -192,11 +227,13 @@ def main():
         raw_scores = torch.cat([raw_scores1, raw_scores2], dim=-2)
         targets = torch.arange(2 * d, dtype=torch.long, device=raw_scores.device)
         total_loss_value = criterion(raw_scores, targets)
+        if args.mix:
+            total_loss_value = _mix_step(f, x1, x2, z1_rec, z2_rec, total_loss_value, args)
         losses_value = [total_loss_value]
         total_loss_value.backward()
         optimizer.step()
         return total_loss_value.item(), unpack_item_list(losses_value)
-    
+
     base_encoder_class = {
         "rn18": models.resnet18,
         "rn50": models.resnet50,
@@ -211,13 +248,33 @@ def main():
     f = f.to(device)
 
     if args.load_f is not None:
-        f.load_state_dict(torch.load(args.load_f, map_location=device))
+        checkpoint = torch.load(args.load_f, map_location=device)
+        f.load_state_dict(checkpoint['f'])
 
-    print("f: ", f)
+    print("f: ", f, flush=True)
     optimizer = torch.optim.Adam(f.parameters(), lr=args.lr)
+
     if not args.evaluate:
         train_iterator = InfiniteIterator(train_loader)
     test_iterator = InfiniteIterator(test_loader)
+
+    if args.resume_training:
+        try:
+            cps = os.listdir(args.save_dir)
+            cp_iter = cps[-1].rpartition('_')[-1]
+            if int(cp_iter) >= args.n_steps:
+                print("model already trained max_steps", flush=True)
+                exit(0)
+
+            checkpoint = torch.load(os.path.join(args.save_dir, cps[-1]), map_location=device)
+            f.load_state_dict(checkpoint['f'])
+            optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+            step = checkpoint['step']
+            total_loss_values = checkpoint['total_loss_values']
+            individual_losses_values = checkpoint['individual_losses_values']
+        except:
+            print("No checkpoint found! Starting from step 0.")
+
     if (
         "total_loss_values" in locals() and not args.resume_training
     ) or "total_loss_values" not in locals():
@@ -225,7 +282,8 @@ def main():
         total_loss_values = []
 
     global_step = len(total_loss_values) + 1
-    last_save_at_step = 0
+    last_save_at_step = step if "step" in locals() else 0
+
     while (
         global_step <= args.n_steps
     ):
@@ -291,8 +349,8 @@ def main():
                     l_models.append(disentanglement_utils.linear_disentanglement(
                         standardized_z, hz, train_mode=True
                     ))
-                log_model = disentanglement_utils.linear_disentanglement(training_objz, hz, 
-                                                                         train_mode=True, 
+                log_model = disentanglement_utils.linear_disentanglement(training_objz, hz,
+                                                                         train_mode=True,
                                                                          mode="accuracy")
                 int_n_models = []
                 int_l_models = []
@@ -306,8 +364,8 @@ def main():
                     int_l_models.append(disentanglement_utils.linear_disentanglement(
                         standardized_z, intz, train_mode=True
                     ))
-                int_log_model = disentanglement_utils.linear_disentanglement(training_objz, intz, 
-                                                                         train_mode=True, 
+                int_log_model = disentanglement_utils.linear_disentanglement(training_objz, intz,
+                                                                         train_mode=True,
                                                                          mode="accuracy")
             for i in range(args.num_eval_batches):
                 z_disentanglement, hz_disentanglement = [], []
@@ -333,13 +391,13 @@ def main():
                     nonlin_scores = []
                     for i in range(z_disentanglement.size(-1)):
                         scaled_zi = scaler_zs[i].transform(torch.reshape(z_disentanglement[:,
-                                                                             i], 
+                                                                             i],
                                                                    (-1,1)).detach().cpu().numpy())
                         (
                             linear_disentanglement_score,
                             _,
                         ), _ = disentanglement_utils.linear_disentanglement(
-                            scaled_zi, hz, 
+                            scaled_zi, hz,
                             mode="r2", model=l_models[i]
                         )
                         lin_scores.append(linear_disentanglement_score)
@@ -347,16 +405,16 @@ def main():
                             nonlinear_disentanglement_score,
                             _,
                         ), _ = disentanglement_utils.nonlinear_disentanglement(
-                            scaled_zi, hz, 
+                            scaled_zi, hz,
                             mode="r2", model=n_models[i]
                         )
                         nonlin_scores.append(nonlinear_disentanglement_score)
                     (
                         log_score,
                         _,
-                    ), _ = disentanglement_utils.linear_disentanglement(obj_dis, 
-                                                                                      hz, 
-                                                                              mode="accuracy", 
+                    ), _ = disentanglement_utils.linear_disentanglement(obj_dis,
+                                                                                      hz,
+                                                                              mode="accuracy",
                                                                             model=log_model)
                     lin_scores.insert(0, log_score)
                     nonlin_scores.insert(0, lin_scores[0])
@@ -370,7 +428,7 @@ def main():
                             linear_disentanglement_score,
                             _,
                         ), _ = disentanglement_utils.linear_disentanglement(
-                            scaled_zi, intz, 
+                            scaled_zi, intz,
                             mode="r2", model=int_l_models[i]
                         )
                         int_lin_scores.append(linear_disentanglement_score)
@@ -378,16 +436,16 @@ def main():
                             nonlinear_disentanglement_score,
                             _,
                         ), _ = disentanglement_utils.nonlinear_disentanglement(
-                            scaled_zi, intz, 
+                            scaled_zi, intz,
                             mode="r2", model=int_n_models[i]
                         )
                         int_nonlin_scores.append(nonlinear_disentanglement_score)
                     (
                         log_score,
                         _,
-                    ), _ = disentanglement_utils.linear_disentanglement(obj_dis, 
-                                                                                      intz, 
-                                                                              mode="accuracy", 
+                    ), _ = disentanglement_utils.linear_disentanglement(obj_dis,
+                                                                                      intz,
+                                                                              mode="accuracy",
                                                                             model=int_log_model)
                     int_lin_scores.insert(0, log_score)
                     int_nonlin_scores.insert(0, int_lin_scores[0])
@@ -398,18 +456,22 @@ def main():
                 else:
                     lin_scores = []
                     int_scores = []
+                    if torch.isnan(hz_disentanglement).any():
+                        print(f"NAN DETECTED at HZ, step: {global_step}", flush=True)
+                        print(hz_disentanglement, flush=True)
+                        continue
                     for i in range(z_disentanglement.size(-1)):
                         (
                             linear_disentanglement_score,
                             _,
                         ), _ = disentanglement_utils.linear_disentanglement(
-                            z_disentanglement[:,i], hz_disentanglement, mode="r2", 
+                            z_disentanglement[:,i], hz_disentanglement, mode="r2",
                             train_test_split=True,
                         )
                         lin_scores.append(linear_disentanglement_score)
-                    (cls_sc, _), _ = disentanglement_utils.linear_disentanglement(obj_dis, 
+                    (cls_sc, _), _ = disentanglement_utils.linear_disentanglement(obj_dis,
                                                                            hz_disentanglement,
-                                                                              mode="accuracy", 
+                                                                              mode="accuracy",
                                                                         train_test_split=True)
                     lin_scores.append(cls_sc)
                     for i in range(z_disentanglement.size(-1)):
@@ -417,64 +479,79 @@ def main():
                             linear_disentanglement_score,
                             _,
                         ), _ = disentanglement_utils.linear_disentanglement(
-                            z_disentanglement[:,i], int_dis, mode="r2", 
+                            z_disentanglement[:,i], int_dis, mode="r2",
                             train_test_split=True,
                         )
                         int_scores.append(linear_disentanglement_score)
-                    (cls_sc, _), _ = disentanglement_utils.linear_disentanglement(obj_dis, 
+                    (cls_sc, _), _ = disentanglement_utils.linear_disentanglement(obj_dis,
                                                                          int_dis,
-                                                                              mode="accuracy", 
+                                                                              mode="accuracy",
                                                                         train_test_split=True)
                     int_scores.append(cls_sc)
                     interior_scores.append(int_scores)
                     linear_scores.append(lin_scores)
             if args.evaluate:
-                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(linear_scores)[:,i]) for i in range(11)]))
-                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(nonlinear_scores)[:,i]) for i in range(11)]))
-                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(interior_scores)[:,i]) for i in range(11)]))
-                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(noninterior_scores)[:,i]) for i in range(11)]))
+                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(linear_scores)[:,i]) for i in range(11)]), flush=True)
+                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(nonlinear_scores)[:,i]) for i in range(11)]), flush=True)
+                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(interior_scores)[:,i]) for i in range(11)]), flush=True)
+                print('{} {} {} {} {} {} {} {} {} {} {}'.format(*[np.mean(np.array(noninterior_scores)[:,i]) for i in range(11)]), flush=True)
             else:
                 for i in range(z_disentanglement.size(-1)):
                     print(
                         "linear mean: {} std: {}".format(
-                            np.mean(np.array(linear_scores)[:,i]), 
+                            np.mean(np.array(linear_scores)[:,i]),
                             np.std(np.array(linear_scores)[:,i])
-                        )
+                        ),
+                        flush=True
                     )
                 print(
                     "logistic mean: {} std: {}".format(
-                        np.mean(np.array(linear_scores)[:,-1]), 
+                        np.mean(np.array(linear_scores)[:,-1]),
                         np.std(np.array(linear_scores)[:,-1])
-                    )
+                    ),
+                    flush=True
                 )
                 for i in range(z_disentanglement.size(-1)):
                     print(
                         "int linear mean: {} std: {}".format(
-                            np.mean(np.array(interior_scores)[:,i]), 
+                            np.mean(np.array(interior_scores)[:,i]),
                             np.std(np.array(interior_scores)[:,i])
-                        )
+                        ),
+                        flush=True
                     )
                 print(
                     "int logistic mean: {} std: {}".format(
-                        np.mean(np.array(interior_scores)[:,-1]), 
+                        np.mean(np.array(interior_scores)[:,-1]),
                         np.std(np.array(interior_scores)[:,-1])
-                    )
+                    ),
+                    flush=True
                 )
             if not args.evaluate and (global_step % args.n_log_steps == 1 or global_step == args.n_steps):
                 print(
                     f"Step: {global_step} \t",
                     f"Loss: {total_loss_value:.4f} \t",
                     f"<Loss>: {np.mean(np.array(total_loss_values[-args.n_log_steps:])):.4f} \t",
+                    flush=True
                 )
             if args.save_every is not None:
-                if global_step // args.save_every != last_save_at_step // args.save_every:
+                if global_step == 32000 or global_step // args.save_every != last_save_at_step // args.save_every:
                     last_save_at_step = global_step
-                    model_path = args.save_dir + f".iteration_{global_step}"
-                    torch.save(f.state_dict(), model_path)
-                    torch.save(f.state_dict(), args.save_dir)
+                    if args.save_dir:
+                        if not os.path.exists(args.save_dir):
+                            os.makedirs(args.save_dir)
+                    model_path = args.save_dir + f"/iteration_{global_step}"
+                    torch.save({
+                        'step': global_step,
+                        'f': f.state_dict(),
+                        'optimizer_state_dict': optimizer.state_dict(),
+                        'total_loss_values': total_loss_values,
+                        'individual_losses_values': individual_losses_values
+                    }, model_path)
         global_step += 1
-       
+
 
 
 if __name__ == "__main__":
+    start_time = time.time()
     main()
+    print(f'It took {round(time.time() - start_time, 2)} seconds to run.', flush=True)
